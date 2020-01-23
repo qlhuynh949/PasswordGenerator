@@ -46,6 +46,7 @@
                 <div class="form-group">
                     <label for="inputPasswordLength">Password Length</label>
                     <input type="text" class="form-control" id="inputPasswordLength" placeholder="Password length is from a value of 8 to no more than 128 " onfocusout= onFocusOutValidatePasswordLength();>
+                </div><div id="lengthValidation" class="text-danger">
                 </div>
                 <br>
                 <div class="form-check">
@@ -71,6 +72,8 @@
                     <label class="form-check-label" for="specialCharacterCheck">
                         Has special characters
                     </label>
+                </div>
+                <div id="typeValidation" class="text-danger">
                 </div>
             </div>
             <div class="modal-footer">

@@ -12,7 +12,7 @@ String.prototype.shuffle = function () {
 }
 
 function generatePassword() {
-
+  clearTypeValidation()
   let passwordLength = parseInt(document.querySelector("#inputPasswordLength").value);
   let hasNumber = document.querySelector("#numberCheck").checked
   let hasUpperCase = document.querySelector("#upperCaseCheck").checked
@@ -20,10 +20,11 @@ function generatePassword() {
   let hasSpecialCharacter = document.querySelector("#specialCharacterCheck").checked
 
   if (!hasNumber && !hasUpperCase && !hasLowerCase && !hasSpecialCharacter) {
-    alert("Please check off at least one of the check box options. (Either has numbers, has upper case letters, has lower case letters, or has special characters)")
+    displayTypeValidation()
+    // alert("Please check off at least one of the check box options. (Either has numbers, has upper case letters, has lower case letters, or has special characters)")
   }
 
-  if (!(passwordLength == NaN) && (passwordLength >= 8) && (passwordLength <= 128)
+  if (!(isNaN(passwordLength) && (passwordLength >= 8) && (passwordLength <= 128)
     && !(!hasNumber && !hasUpperCase && !hasLowerCase && !hasSpecialCharacter)
   ) {
 
@@ -67,10 +68,30 @@ function generatePassword() {
   }
 }
 function onFocusOutValidatePasswordLength() {
+  clearLengthValidation()
   let passwordLength = parseInt(document.querySelector("#inputPasswordLength").value);
-  if (passwordLength == NaN || passwordLength < 8 || passwordLength > 128) {
+  if (isNaN(passwordLength) || passwordLength === null || passwordLength < 8 || passwordLength > 128) {
     {
-      alert("Password length is not beween 8 and 128 characters")
+      displayLengthValidation()
     }
   }
+}
+function displayLengthValidation() {
+  let lengthValidation = document.getElementById('lengthValidation')
+  lengthValidation.textContent = "Password length is not beween 8 and 128 characters"
+}
+
+function clearLengthValidation() {
+  let lengthValidation = document.getElementById('lengthValidation')
+  lengthValidation.textContent = ""
+}
+
+function displayTypeValidation() {
+  let typeValidation = document.getElementById('typeValidation')
+  typeValidation.innerHTML = "<br>Please check off at least one of the check box options. (Either has numbers, has upper case letters, has lower case letters, or has special characters)"
+}
+
+function clearTypeValidation() {
+  let typeValidation = document.getElementById('typeValidation')
+  typeValidation.textContent = ""
 }
