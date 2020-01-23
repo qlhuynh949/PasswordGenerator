@@ -24,7 +24,7 @@ function generatePassword() {
     // alert("Please check off at least one of the check box options. (Either has numbers, has upper case letters, has lower case letters, or has special characters)")
   }
 
-  if (!(isNaN(passwordLength) && (passwordLength >= 8) && (passwordLength <= 128)
+  if (!(isNaN(passwordLength)) && (passwordLength >= 8) && (passwordLength <= 128)
     && !(!hasNumber && !hasUpperCase && !hasLowerCase && !hasSpecialCharacter)
   ) {
 
