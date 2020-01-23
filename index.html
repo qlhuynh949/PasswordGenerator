@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Password Generator</title>
+      <!-- Bootstrap CDN -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:700|PT+Sans&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="./assets/css/reset.css">
+      <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+<header class="Header">
+    <h1>Password Generator</h1>
+</header>
+<main class="container">
+<section id="largeScreen">
+<div class="card" >
+    <div class="card-body">
+        <p class="card-text">Generate a Password</p>
+        <hr id="descriptionLine">
+                    <div class="form-group">
+                        <textarea class="form-control" id="generatedPassword" rows="3" readonly>
+                                        Your Secure Password
+                                    </textarea>
+                    </div><button class="btn btn-primary btn-danger btn-lg " data-toggle="modal" data-target="#passwordModal">Generate Password</button>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="passwordModal" tabindex="-1" role="dialog" aria-labelledby="passwordModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="passwordCriteria">Password Criterias</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="text">Please select desired password criterias:</div>
+                <br>
+                <div class="form-group">
+                    <label for="inputPasswordLength">Password Length</label>
+                    <input type="text" class="form-control" id="inputPasswordLength" placeholder="Password length is from a value of 8 to no more than 128 " onfocusout= onFocusOutValidatePasswordLength();>
+                </div>
+                <br>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="lowerCaseCheck">
+                    <label class="form-check-label" for="lowerCaseCheck">
+                        Has lower case letters
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="upperCaseCheck" >
+                    <label class="form-check-label" for="upperCaseCheck">
+                        Has upper case letters
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="numberCheck">
+                    <label class="form-check-label" for="numberCheck">
+                        Has numbers
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="specialCharacterCheck">
+                    <label class="form-check-label" for="specialCharacterCheck">
+                        Has special characters
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="savePasswordCriteria" onclick="generatePassword()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+</main>
+
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    
+    <!-- Bootstrap JavaScript CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+    </script>
+
+    <script src="./assets/js/app.js"></script>
+
+</body>
+</html>
