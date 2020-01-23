@@ -1,0 +1,25 @@
+.Header {
+  text-align: center;
+  background-color: white;
+  color: black;
+  font-size: 25px;
+}
+
+.container {
+  width: 100%
+}
+
+#generatedPassword {
+  width:100%
+}
+
+#largeLayout {
+  width: 100%;
+}
+
+#descriptionLine {
+  color: darkgray;
+  background-color: darkgray;
+  height: 1px;
+  width: 100%
+}
