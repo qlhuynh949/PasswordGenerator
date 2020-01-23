@@ -14,7 +14,18 @@ String.prototype.shuffle = function () {
 function generatePassword() {
 
   let passwordLength = parseInt(document.querySelector("#inputPasswordLength").value);
-  if (!(passwordLength == NaN) && (passwordLength >= 8) && (passwordLength <= 128)) {
+  let hasNumber = document.querySelector("#numberCheck").checked
+  let hasUpperCase = document.querySelector("#upperCaseCheck").checked
+  let hasLowerCase = document.querySelector("#lowerCaseCheck").checked
+  let hasSpecialCharacter = document.querySelector("#specialCharacterCheck").checked
+
+  if (!hasNumber && !hasUpperCase && !hasLowerCase && !hasSpecialCharacter) {
+    alert("Please check off at least one of the check box options. (Either has numbers, has upper case letters, has lower case letters, or has special characters)")
+  }
+
+  if (!(passwordLength == NaN) && (passwordLength >= 8) && (passwordLength <= 128)
+    && !(!hasNumber && !hasUpperCase && !hasLowerCase && !hasSpecialCharacter)
+  ) {
 
     let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     let charsetLower = "abcdefghijklmnopqrstuvwxyz"
@@ -24,10 +35,6 @@ function generatePassword() {
     let genPassword = ""
     let genPasswordLen = passwordLength
 
-    let hasNumber = document.querySelector("#numberCheck").checked
-    let hasUpperCase = document.querySelector("#upperCaseCheck").checked
-    let hasLowerCase = document.querySelector("#lowerCaseCheck").checked
-    let hasSpecialCharacter = document.querySelector("#specialCharacterCheck").checked
 
     if (hasNumber) {
       let randNum = Math.floor(Math.random() * charsetNumber.length)
@@ -56,7 +63,7 @@ function generatePassword() {
     $("#passwordModal").modal("hide");
   }
   else {
-    alert("Password length is not beween 8 and 128 characters")
+    onFocusOutValidatePasswordLength()
   }
 }
 function onFocusOutValidatePasswordLength() {
